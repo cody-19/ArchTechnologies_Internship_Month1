@@ -1,8 +1,8 @@
-# To-Do App
+# Samar's Portfolio
 
-A clean, lightweight to-do list web application built with vanilla HTML, CSS, and JavaScript. Tasks persist across browser sessions using the `localStorage` API — no backend or database required.
+A modern, responsive personal portfolio website built with vanilla HTML, CSS, and JavaScript. It features a dark theme, animated typing effect, scroll-based interactions, and a fully working contact form with client-side validation.
 
-![To-Do App Preview](../images/Screenshot%20From%202026-08-29%2000-54-54.png)
+![Portfolio Preview](images/Screenshot%20From%202026-08-29%2000-51-32.png)
 
 ## Table of Contents
 
@@ -10,68 +10,66 @@ A clean, lightweight to-do list web application built with vanilla HTML, CSS, an
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-- [How It Works](#how-it-works)
-- [Future Improvements](#future-improvements)
+- [Customization](#customization)
+- [Browser Support](#browser-support)
 - [License](#license)
 
 ## Features
 
-- ➕ **Add tasks** by typing into the input field and hitting Enter or clicking **ADD**
-- ✅ **Mark tasks complete** with a custom checkbox (strikethrough styling on completed items)
-- 🗑️ **Delete tasks** with a single click
-- 💾 **Persistent storage** — tasks are saved to `localStorage`, so your list survives page reloads and browser restarts
-- ⚡ **Dynamic rendering** — the UI is always rebuilt from the underlying data array, keeping state and display in sync
+- **Responsive navigation bar** with a mobile hamburger menu
+- **Animated typing effect** in the hero section that cycles through multiple roles (Web Developer, Frontend Developer, UI Designer, Freelancer)
+- **About section** with profile photo and personal details
+- **Skills section** displaying core competencies as icon-based cards
+- **Projects section** showcasing completed work with image cards and links
+- **Contact form** with client-side validation (required fields + email format check)
+- **Scroll-based active nav highlighting** — the current section is highlighted in the nav as you scroll
+- **Header background transition** on scroll
+- **Scroll-reveal animations** powered by the Intersection Observer API
+- **Auto-updating footer year** via JavaScript
 
 ## Tech Stack
 
 | Technology | Purpose |
 |---|---|
-| HTML5 | Minimal semantic markup |
-| CSS3 | Styling for inputs, buttons, checkboxes, and task list |
-| JavaScript (ES6, Vanilla) | DOM manipulation, event handling, localStorage persistence |
-| Inline SVG | Checkbox tick and delete icons (no external image assets) |
+| HTML5 | Semantic page structure |
+| CSS3 | Custom properties, Flexbox, Grid, media queries, transitions |
+| JavaScript (ES6, Vanilla) | DOM manipulation, event handling, Intersection Observer |
+| [Google Fonts](https://fonts.google.com/) (Poppins) | Typography |
+| [Font Awesome](https://fontawesome.com/) | Icons |
 
-No frameworks or external dependencies — pure HTML/CSS/JS.
+No frameworks, build tools, or dependencies required — it's pure HTML/CSS/JS.
 
 ## Project Structure
 
 ```
-ToDo_App/
-├── index.html          # Page markup (input form + empty task list container)
-├── style.css           # Styling for the app and task items
-├── app.js              # All application logic (add, complete, delete, persistence)
-└── icons/               # SVG icons (done, delete)
+Portfolio_App/
+├── index.html          # Main page markup
+├── style.css           # All styling (theme variables, layout, responsiveness)
+├── script.js           # Interactivity (nav, typing effect, scroll effects, form validation)
+└── images/              # Profile photo and project screenshots
 ```
 
 
 
-## How It Works
+## Customization
 
-The app keeps a single source of truth — an array of task objects (`allTodos`) — and re-renders the list from that array whenever it changes.
+- **Colors & theme:** edit the CSS custom properties at the top of `style.css`:
 
-```js
-// Each task is stored as:
-{ text: "Study 8 hours", completed: false }
-```
+  ```css
+  :root {
+    --primary: #6366f1;
+    --secondary: #22d3ee;
+    --background: #0f172a;
+    ...
+  }
+  ```
 
-**Key functions in `app.js`:**
+- **Personal info:** update your name, role list (`roles` array in `script.js`), email, and social links directly in `index.html`.
+- **Projects:** add or edit project cards inside the `#projects` section of `index.html`, and drop new screenshots into `images/`.
 
-| Function | Responsibility |
-|---|---|
-| `addTodo()` | Reads the input, pushes a new task object, re-renders, and saves |
-| `updateTodoList()` | Clears and rebuilds the `<ul>` from the `allTodos` array |
-| `createTodoItem()` | Builds a single `<li>` with checkbox, label, and delete button, and wires up its event listeners |
-| `deleteTodoItem()` | Removes a task by index and re-renders |
-| `saveTodos()` / `getTodos()` | Serialize/deserialize the task array to and from `localStorage` |
+## Browser Support
 
-Because the UI is always regenerated from `allTodos`, there's no risk of the displayed list drifting out of sync with the underlying data.
-
-## Future Improvements
-
-- Edit existing task text in place
-- Filter tasks by status (All / Active / Completed)
-- Drag-and-drop reordering
-- Due dates and reminders
+Tested on the latest versions of Chrome, Firefox, Edge, and Safari. Responsive breakpoints are included for tablets (900px) and mobile (650px, 400px).
 
 ## License
 
