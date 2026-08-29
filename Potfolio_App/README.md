@@ -43,22 +43,7 @@ ToDo_App/
 └── icons/               # SVG icons (done, delete)
 ```
 
-## Getting Started
 
-No build step or installation required.
-
-1. Clone or download this repository.
-2. Open `index.html` directly in your browser, **or** serve it locally:
-
-   ```bash
-   # Using Python
-   python3 -m http.server 8000
-
-   # Using Node (npx serve)
-   npx serve .
-   ```
-
-3. Visit `http://localhost:8000` and start adding tasks.
 
 ## How It Works
 
